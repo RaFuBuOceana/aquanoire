@@ -1,0 +1,253 @@
+body {
+    background-color: #1c1c1c;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    color: #f0f0f0;
+}
+h1, h2 {
+	color: #f0f0f0;
+}
+
+.kopfzeile {
+	background-color: #393939;
+	text-align: center;
+	border-radius: 20px;
+	padding: 30px;
+	transition: all 0.3s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px auto;
+	width: 80%;
+
+}
+.kopfzeile:hover {
+	color: #a08050;
+	transform: scale(1.1);
+}
+nav {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 5%;
+	transition: all 0.3s ease;
+}
+.nav-link {
+	padding: 15px;
+	border-radius: 12px;
+	color: #f0f0f0;
+	text-decoration: none;
+	font-size: 16px;
+	font-family: inherit;
+	transition: all 0.3s ease;
+	display: inline-block;
+}
+.nav-link:hover {
+	color: #B7F2FF;
+	transition: scale(1.2);
+}
+.hauptinhalt1 {
+	max-width: 50%;
+	background-color: #393939;
+	width: 80%;
+	padding: 30px;
+	margin: 80px auto;
+	border-radius: 8px;
+	box-shadow: 0 0 20px 5px rgba(0,255,255,0.3);
+	transition: all 0.3s ease;
+	animation: einfliegenl linear both; 
+	animation-timeline: view();
+	animation-range: entry 0% cover 50%;
+	display: block;
+}
+.hauptinhalt1.kein-einfliegen {
+	animation: none;
+	opacity: 1;
+	transform: none;
+}
+.hauptinhalt1:hover {
+	color: #B7F2FF;
+	transform: scale(1.05);
+}
+.hauptinhalt2 {
+	max-width: 50%;
+	background-color: #393939;
+	width: 80%;
+	padding: 30px;
+	margin: 20px auto;
+	border-radius: 8px;
+	box-shadow: 0 0 20px 5px rgba(0,255,255,0.3);
+	transition: all 0.3s ease;
+	animation: einfliegenr linear both; 
+	animation-timeline: view();
+	animation-range: entry 0% cover 50%;
+	display: block;
+}
+.hauptinhalt2:hover {
+	color: #B7F2FF;
+	transform: scale(1.05);
+}
+.site-footer {
+	margin-top: auto;
+	padding: 20px 0;
+	border-top: 1px solid #eee;
+	color: #666;
+	font-size: 0.85rem;
+}
+.footer-content {
+	max-width: 800px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+}
+.footer-links a {
+	color: #666;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+.footer.links:hover {
+	color: #B7F2FF;
+	transform: scale(1.05);
+}
+.separator {
+	margin: 0 10px;
+	color: #ddd;
+}
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+.box {
+	background-color: #393939;
+	padding: 15px;
+	border-radius: 8px;
+	border: 2px solid rgba(0,255,255,0.5);
+}
+.shop-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+	margin-top: 20px;
+}
+.shop-karte {
+	background-color: #2a2a2a;
+	border: 2px solid rgba(0,255,255,0.3);
+	border-radius: 12px;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	transition: all 0.3s ease;
+}
+.shop-karte:hover {
+	border-color: rgba(0,255,255,0.8);
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0,255,255,0.2);
+}
+.shop-karte h3 {
+	color: #B7F2FF;
+	margin: 0;
+	font-size: 1.1rem;
+}
+.shop-karte p {
+	color: #ccc;
+	font-size: 0.9rem;
+	margin: 0;
+	flex-grow: 1;
+}
+.shop-preis {
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: #f0f0f0;
+}
+.shop-badge {
+	display: inline-block;
+	background-color: rgba(0,255,255,0.15);
+	border: 1px solid rgba(0,255,255,0.4);
+	color: #B7F2FF;
+	font-size: 0.75rem;
+	padding: 3px 10px;
+	border-radius: 20px;
+	width: fit-content;
+}
+.shop-btn {
+	display: inline-block;
+	margin-top: 8px;
+	padding: 10px 20px;
+	background-color: transparent;
+	border: 2px solid rgba(0,255,255,0.6);
+	color: #B7F2FF;
+	border-radius: 8px;
+	text-align: center;
+	text-decoration: none;
+	font-family: inherit;
+	font-size: 0.95rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.shop-btn:hover {
+	background-color: rgba(0,255,255,0.15);
+	border-color: #B7F2FF;
+}
+.kontakt-formular {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-top: 20px;
+}
+.formular-zeile {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14px;
+}
+.formular-feld {
+	background-color: #2a2a2a;
+	border: 2px solid rgba(0,255,255,0.3);
+	border-radius: 8px;
+	padding: 12px 16px;
+	color: #f0f0f0;
+	font-family: inherit;
+	font-size: 0.95rem;
+	transition: border-color 0.3s ease;
+	width: 100%;
+	box-sizing: border-box;
+}
+.formular-feld:focus {
+	outline: none;
+	border-color: rgba(0,255,255,0.8);
+}
+.formular-feld option {
+	background-color: #2a2a2a;
+}
+.formular-textarea {
+	min-height: 140px;
+	resize: vertical;
+}
+@keyframes einfliegenl {
+  from {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes einfliegenr {
+  from {
+    opacity: 0;
+    transform: translateX(500px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
