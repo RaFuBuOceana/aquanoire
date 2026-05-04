@@ -994,6 +994,7 @@ nav img {
 			position: absolute;
 			inset: 0;
 			background-image: url('bilder/herobackground.jpg');
+			background-radius: 20px;
 			background-size: cover;
 			background-position: center;
 			filter: brightness(0.2) saturate(0.8);
