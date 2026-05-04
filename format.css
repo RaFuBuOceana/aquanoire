@@ -476,3 +476,568 @@ nav img {
         text-align: center;
     }
 }
+/* ── PARALLAX HERO ── */
+		.quelle-hero {
+			position: relative;
+			width: 100%;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			background: #000;
+		}
+
+		.quelle-hero-bg {
+			position: absolute;
+			inset: 0;
+			background-image: url('bilder/herobackground.png');
+			background-size: cover;
+			background-position: center;
+			filter: brightness(0.35) saturate(1.4);
+			transform: scale(1.1);
+			animation: slowZoom 20s ease-in-out infinite alternate;
+		}
+
+		@keyframes slowZoom {
+			from { transform: scale(1.05); }
+			to   { transform: scale(1.15); }
+		}
+
+		.quelle-hero-overlay {
+			position: absolute;
+			inset: 0;
+			background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.7) 100%);
+		}
+
+		.quelle-hero-content {
+			position: relative;
+			z-index: 2;
+			text-align: center;
+			padding: 20px;
+		}
+
+		.quelle-eyebrow {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 0.8rem;
+			letter-spacing: 6px;
+			color: var(--cyan);
+			opacity: 0.7;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+			animation: fadeUp 1s ease 0.2s both;
+		}
+
+		.quelle-hero-titel {
+			font-family: 'Cormorant Garant', serif;
+			font-size: clamp(3rem, 8vw, 7rem);
+			font-weight: 300;
+			font-style: italic;
+			color: #f0f0f0;
+			letter-spacing: 4px;
+			line-height: 1.1;
+			margin-bottom: 24px;
+			animation: fadeUp 1s ease 0.4s both;
+		}
+
+		.quelle-hero-sub {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 1.1rem;
+			font-style: italic;
+			color: var(--cyan);
+			opacity: 0.85;
+			letter-spacing: 2px;
+			max-width: 500px;
+			margin: 0 auto 40px;
+			animation: fadeUp 1s ease 0.6s both;
+		}
+
+		.scroll-hint {
+			position: absolute;
+			bottom: 40px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+			animation: fadeUp 1s ease 1s both;
+			z-index: 2;
+		}
+
+		.scroll-hint span {
+			font-size: 0.7rem;
+			letter-spacing: 3px;
+			color: var(--cyan);
+			opacity: 0.5;
+			text-transform: uppercase;
+		}
+
+		.scroll-arrow {
+			width: 1px;
+			height: 50px;
+			background: linear-gradient(to bottom, var(--cyan), transparent);
+			animation: scrollPulse 2s ease-in-out infinite;
+		}
+
+		@keyframes scrollPulse {
+			0%, 100% { opacity: 0.3; transform: scaleY(1); }
+			50% { opacity: 1; transform: scaleY(1.2); }
+		}
+
+		@keyframes fadeUp {
+			from { opacity: 0; transform: translateY(30px); }
+			to   { opacity: 1; transform: translateY(0); }
+		}
+
+		/* ── INTRO SECTION ── */
+		.quelle-intro {
+			max-width: 700px;
+			margin: 100px auto;
+			padding: 0 40px;
+			text-align: center;
+		}
+
+		.quelle-intro h2 {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 2.4rem;
+			font-weight: 300;
+			font-style: italic;
+			margin-bottom: 24px;
+			color: #f0f0f0;
+		}
+
+		.quelle-intro p {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 1.15rem;
+			line-height: 1.9;
+			color: #ccc;
+		}
+
+		.divider {
+			width: 60px;
+			height: 1px;
+			background: var(--cyan);
+			margin: 30px auto;
+			opacity: 0.4;
+		}
+
+		/* ── MINERAL STATS ── */
+		.mineral-section {
+			max-width: 900px;
+			margin: 0 auto 100px;
+			padding: 0 40px;
+		}
+
+		.mineral-section h2 {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 2rem;
+			font-weight: 300;
+			font-style: italic;
+			text-align: center;
+			margin-bottom: 50px;
+			color: #f0f0f0;
+		}
+
+		.mineral-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+			gap: 20px;
+		}
+
+		.mineral-card {
+			background: #252525;
+			border: 1px solid rgba(183,242,255,0.1);
+			border-radius: 12px;
+			padding: 28px 20px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+			transition: all 0.4s ease;
+			opacity: 0;
+			transform: translateY(30px);
+		}
+
+		.mineral-card.visible {
+			animation: cardReveal 0.6s ease forwards;
+		}
+
+		@keyframes cardReveal {
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		.mineral-card::before {
+			content: '';
+			position: absolute;
+			bottom: 0; left: 0; right: 0;
+			height: 2px;
+			background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+			transform: scaleX(0);
+			transition: transform 0.4s ease;
+		}
+
+		.mineral-card:hover::before {
+			transform: scaleX(1);
+		}
+
+		.mineral-card:hover {
+			border-color: rgba(183,242,255,0.35);
+			transform: translateY(-6px);
+			box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 0 20px rgba(183,242,255,0.05);
+		}
+
+		.mineral-value {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 2.2rem;
+			font-weight: 600;
+			color: var(--cyan);
+			display: block;
+		}
+
+		.mineral-unit {
+			font-size: 0.75rem;
+			color: #888;
+			letter-spacing: 1px;
+		}
+
+		.mineral-name {
+			font-size: 0.85rem;
+			color: #aaa;
+			margin-top: 8px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+		/* ── TIMELINE ── */
+		.timeline-section {
+			max-width: 800px;
+			margin: 0 auto 80px;
+			padding: 0 40px;
+		}
+
+		.timeline-section h2 {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 2rem;
+			font-weight: 300;
+			font-style: italic;
+			text-align: center;
+			margin-bottom: 60px;
+			color: #f0f0f0;
+		}
+
+		.timeline {
+			position: relative;
+			padding-left: 40px;
+		}
+
+		.timeline::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0; bottom: 0;
+			width: 1px;
+			background: linear-gradient(to bottom, transparent, var(--cyan), var(--cyan), transparent);
+			opacity: 0.3;
+		}
+
+		.timeline-item {
+			position: relative;
+			margin-bottom: 60px;
+			opacity: 0;
+			transform: translateX(-30px);
+			transition: all 0.7s ease;
+		}
+
+		.timeline-item.visible {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		.timeline-dot {
+			position: absolute;
+			left: -46px;
+			top: 6px;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background: var(--dark);
+			border: 2px solid var(--cyan);
+			box-shadow: 0 0 10px rgba(183,242,255,0.4);
+			transition: all 0.3s ease;
+		}
+
+		.timeline-item:hover .timeline-dot {
+			background: var(--cyan);
+			box-shadow: 0 0 20px rgba(183,242,255,0.8);
+		}
+
+		.timeline-year {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 0.75rem;
+			letter-spacing: 4px;
+			color: var(--cyan);
+			opacity: 0.7;
+			text-transform: uppercase;
+			margin-bottom: 8px;
+		}
+
+		.timeline-title {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 1.5rem;
+			font-weight: 400;
+			font-style: italic;
+			color: #f0f0f0;
+			margin-bottom: 10px;
+		}
+
+		.timeline-text {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 1.05rem;
+			line-height: 1.8;
+			color: #999;
+		}
+
+		/* ── MAP SECTION ── */
+		.map-section {
+			max-width: 1000px;
+			margin: 0 auto 100px;
+			padding: 0 40px;
+		}
+
+		.map-section h2 {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 2rem;
+			font-weight: 300;
+			font-style: italic;
+			text-align: center;
+			margin-bottom: 50px;
+			color: #f0f0f0;
+		}
+
+		.map-container {
+			position: relative;
+			background: #111;
+			border: 1px solid rgba(183,242,255,0.15);
+			border-radius: 16px;
+			overflow: hidden;
+			aspect-ratio: 16/9;
+		}
+
+		/* Stylized SVG map of central Europe */
+		.map-svg {
+			width: 100%;
+			height: 100%;
+		}
+
+		.map-label {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 11px;
+			fill: #888;
+			letter-spacing: 1px;
+		}
+
+		.map-source-label {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 13px;
+			fill: var(--cyan);
+			font-style: italic;
+		}
+
+		.map-pulse {
+			animation: pulse 2.5s ease-in-out infinite;
+			transform-origin: center;
+		}
+
+		@keyframes pulse {
+			0%, 100% { opacity: 1; r: 6px; }
+			50% { opacity: 0.6; r: 9px; }
+		}
+
+		.map-ring {
+			fill: none;
+			stroke: var(--cyan);
+			stroke-width: 1;
+			animation: ringExpand 2.5s ease-out infinite;
+			transform-origin: center;
+		}
+
+		@keyframes ringExpand {
+			0% { r: 8px; opacity: 0.8; stroke-width: 1.5; }
+			100% { r: 30px; opacity: 0; stroke-width: 0.5; }
+		}
+
+		.map-info-box {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			background: rgba(0,0,0,0.8);
+			border: 1px solid rgba(183,242,255,0.25);
+			border-radius: 10px;
+			padding: 16px 20px;
+			min-width: 180px;
+		}
+
+		.map-info-box h4 {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 1rem;
+			font-style: italic;
+			color: var(--cyan);
+			margin-bottom: 8px;
+		}
+
+		.map-info-box p {
+			font-size: 0.8rem;
+			color: #888;
+			line-height: 1.6;
+			font-family: 'Cormorant Garant', serif;
+		}
+
+		/* ── GEOLOGIE SECTION ── */
+		.geo-section {
+			max-width: 900px;
+			margin: 0 auto 100px;
+			padding: 0 40px;
+		}
+
+		.geo-section h2 {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 2rem;
+			font-weight: 300;
+			font-style: italic;
+			text-align: center;
+			margin-bottom: 50px;
+			color: #f0f0f0;
+		}
+
+		.geo-layers {
+			position: relative;
+			width: 100%;
+			border-radius: 12px;
+			overflow: hidden;
+			border: 1px solid rgba(183,242,255,0.1);
+		}
+
+		.geo-layer {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			padding: 18px 28px;
+			border-bottom: 1px solid rgba(255,255,255,0.04);
+			transition: all 0.3s ease;
+			cursor: default;
+			opacity: 0;
+			transform: translateX(-20px);
+			transition: opacity 0.5s ease, transform 0.5s ease, background 0.3s ease, padding 0.3s ease;
+		}
+
+		.geo-layer.visible {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		.geo-layer:hover {
+			background: rgba(183,242,255,0.04);
+			padding-left: 36px;
+		}
+
+		.geo-depth {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 0.75rem;
+			color: var(--cyan);
+			opacity: 0.6;
+			letter-spacing: 2px;
+			min-width: 80px;
+			text-align: right;
+		}
+
+		.geo-bar {
+			width: 4px;
+			align-self: stretch;
+			border-radius: 2px;
+			flex-shrink: 0;
+		}
+
+		.geo-name {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 1rem;
+			color: #ddd;
+			font-weight: 400;
+		}
+
+		.geo-desc {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 0.85rem;
+			color: #666;
+			margin-left: auto;
+			text-align: right;
+			font-style: italic;
+			max-width: 300px;
+		}
+
+		/* ── ZITAT SECTION ── */
+		.zitat-section {
+			position: relative;
+			text-align: center;
+			padding: 80px 40px;
+			overflow: hidden;
+		}
+
+		.zitat-section::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image: url('bilder/wassereffekt.png');
+			background-size: cover;
+			background-position: center;
+			filter: brightness(0.2) saturate(0.8);
+		}
+
+		.zitat-content {
+			position: relative;
+			z-index: 1;
+			max-width: 700px;
+			margin: 0 auto;
+		}
+
+		.zitat-mark {
+			font-family: 'Cormorant Garant', serif;
+			font-size: 6rem;
+			color: var(--cyan);
+			opacity: 0.2;
+			line-height: 0.5;
+			display: block;
+			margin-bottom: 20px;
+		}
+
+		.zitat-text {
+			font-family: 'Cormorant Garant', serif;
+			font-size: clamp(1.4rem, 3vw, 2rem);
+			font-style: italic;
+			font-weight: 300;
+			color: #f0f0f0;
+			line-height: 1.7;
+			margin-bottom: 24px;
+		}
+
+		.zitat-autor {
+			font-size: 0.8rem;
+			letter-spacing: 3px;
+			color: var(--cyan);
+			opacity: 0.6;
+			text-transform: uppercase;
+		}
+
+		/* ── RESPONSIVE ── */
+		@media (max-width: 768px) {
+			.quelle-intro, .mineral-section, .timeline-section,
+			.map-section, .geo-section { padding: 0 20px; }
+
+			.mineral-grid { grid-template-columns: 1fr 1fr; }
+
+			.geo-desc { display: none; }
+
+			.map-container { aspect-ratio: 4/3; }
+
+			.geo-layer { padding: 14px 16px; }
+		}
