@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Service - Aqua Noire</title>
+	<link rel="stylesheet" href="format.css">
+</head>
+<body>
+
+	<nav class="navbar">
+		<a href="index.html">
+			<img src="bilder/AquaNoirelogo.png" alt="Aqua Noire" height="36">
+		</a>
+		<div style="display: flex; gap: 8px;">
+			<a href="index.html" class="nav-link">Home</a>
+			<a href="ueberuns.html" class="nav-link">Über Uns</a>
+			<a href="filtration.html" class="nav-link">Filtration</a>
+			<a href="shop.html" class="nav-link">Shop</a>
+			<a href="service.html" class="nav-link aktiv">Service</a>
+		</div>
+	</nav>
+
+	<div class="hero-banner">
+		<h1 class="hero-titel">Service</h1>
+		<p class="hero-tagline">Nicht automatisiert. Menschlich.</p>
+	</div>
+
+	
+	<div class="hauptinhalt1 kein-einfliegen">
+		<h2>Unser Service-Versprechen</h2>
+		<p>Bei Aqua Noire endet unser Anspruch nicht mit dem Kauf eines Produkts. Wir begleiten unsere Kunden langfristig – von der ersten Beratung über die Installation bis hin zur regelmäßigen Wartung. Unser Serviceteam steht Ihnen persönlich zur Verfügung und findet für jede Situation eine passende Lösung.</p>
+		<p>Ob Fragen zum Filtersystem, Unterstützung bei der Bestellung oder technische Hilfe vor Ort – wir sind für Sie da. Nicht automatisiert, sondern menschlich.</p>
+	</div>
+
+	<img src="bilder/wassereffekt.png" alt="Wasser" width="100%">
+
+
+	<div class="hauptinhalt2">
+		<h2>Unsere Leistungen</h2>
+		<div class="container">
+			<div class="box"><b>Beratung:</b> Persönliche Produktberatung – kostenlos und unverbindlich, telefonisch oder vor Ort</div>
+			<div class="box"><b>Installation:</b> Fachgerechter Einbau Ihres Filtersystems durch geschultes Personal</div>
+			<div class="box"><b>Wartung:</b> Regelmäßiger Filterwechsel und Systemcheck auf Wunsch durch unser Team</div>
+			<div class="box"><b>Lieferservice:</b> Regelmäßige Belieferung mit Filterkerzen oder Premium-Wasser nach Vereinbarung</div>
+			<div class="box"><b>Gastronomie:</b> Individuelle Betreuung für Restaurants, Hotels und Gewerbebetriebe</div>
+			<div class="box"><b>Reklamation:</b> Schnelle und unkomplizierte Bearbeitung bei Produktproblemen</div>
+		</div>
+	</div>
+
+	<img src="bilder/wassereffekt.png" alt="Wasser" width="100%" style="transform: scaleX(-1);">
+
+
+	<div class="hauptinhalt1">
+		<h2>Kontakt aufnehmen</h2>
+		<p>Sie haben eine Frage, möchten ein Produkt bestellen oder einen Servicetermin vereinbaren? Füllen Sie das Formular aus – wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.</p>
+		<form class="kontakt-formular" action="https://formspree.io/f/mlgzdlae" method="POST">
+			<input type="hidden" name="_next" value="danke.html">
+			<div class="formular-zeile">
+				<input type="text"  name="name"     placeholder="Ihr Name" class="formular-feld" required>
+				<input type="email" name="email"    placeholder="Ihre E-Mail-Adresse" class="formular-feld" required>
+			</div>
+			<div class="formular-zeile">
+				<select name="betreff" class="formular-feld">
+					<option value="" disabled selected>Betreff wählen …</option>
+					<option>Produktberatung</option>
+					<option>Bestellung aufgeben</option>
+					<option>Installation vereinbaren</option>
+					<option>Wartung & Filterwechsel</option>
+					<option>Reklamation</option>
+					<option>Sonstiges</option>
+				</select>
+				<input type="tel" name="telefon" placeholder="Telefonnummer (optional)" class="formular-feld">
+			</div>
+			<textarea name="nachricht" class="formular-feld formular-textarea" placeholder="Ihre Nachricht …" required></textarea>
+			<button type="submit" class="shop-btn" style="margin-top: 8px;">Nachricht absenden</button>
+		</form>
+	</div>
+
+	<img src="bilder/wassereffekt.png" alt="Wasser" width="100%">
+
+
+	<div class="hauptinhalt2">
+		<h2>Direkter Kontakt</h2>
+		<div class="container">
+			<div class="box"><b>Telefon:</b><br>+49 (0) 711 123 456 7<br><small>Mo–Fr, 9:00 – 17:00 Uhr</small></div>
+			<div class="box"><b>E-Mail:</b><br>kontakt@aquanoire.de<br><small>Antwort innerhalb von 24 h</small></div>
+			<div class="box"><b>Adresse:</b><br>Aqua Noire GmbH<br>Musterstraße 12, 70173 Stuttgart</div>
+			<div class="box"><b>Servicezeiten:</b><br>Montag – Freitag<br>9:00 – 17:00 Uhr</div>
+		</div>
+	</div>
+
+	<img src="bilder/wassereffekt.png" alt="Wasser" width="100%" style="transform: scaleX(-1);">
+
+
+	<div class="hauptinhalt1">
+		<h2>Häufige Fragen</h2>
+		<p><b>Wie oft muss der Filter gewechselt werden?</b><br>
+		Wir empfehlen einen Wechsel alle 6 Monate oder nach ca. 5.000 Litern Durchfluss – je nachdem, was zuerst erreicht wird. Der Wechsel dauert weniger als eine Minute.</p>
+		<p><b>Kann ich das System selbst installieren?</b><br>
+		Ja. Das Aqua Noire System ist für die Selbstinstallation ausgelegt und wird mit einer bebilderten Anleitung geliefert. Auf Wunsch übernimmt unser Team die Installation kostenpflichtig für Sie.</p>
+		<p><b>Gibt es einen Wartungsvertrag?</b><br>
+		Auf Anfrage bieten wir individuelle Wartungsvereinbarungen an – besonders attraktiv für Gewerbekunden und Gastronomiebetriebe.</p>
+		<p><b>Was passiert, wenn ein Produkt defekt ist?</b><br>
+		Wenden Sie sich direkt an uns. Wir prüfen den Fall umgehend und kümmern uns um Ersatz oder Reparatur – unkompliziert und ohne langen Schriftverkehr.</p>
+	</div>
+
+	<img src="bilder/wassereffekt.png" alt="Wasser" width="100%">
+
+
+	<div class="hauptinhalt2">
+		<h2>Für Gewerbekunden</h2>
+		<p>Restaurants, Hotels, Cafés und andere Betriebe profitieren von unseren maßgeschneiderten Gewerbepaketen. Wir beraten Sie individuell – von der Auswahl des richtigen Filtersystems über regelmäßige Lieferverträge bis hin zu exklusiven Konditionsvereinbarungen.</p>
+		<p>Nehmen Sie Kontakt auf und schildern Sie uns Ihren Bedarf. Wir erstellen Ihnen innerhalb von 48 Stunden ein unverbindliches Angebot.</p>
+		<a href="mailto:gewerbe@aquanoire.de" class="shop-btn" style="display: inline-block; margin-top: 10px;">Gewerbeanfrage stellen</a>
+	</div>
+
+	<img src="bilder/wassereffekt.png" alt="Wasser" width="100%" style="transform: scaleX(-1);">
+
+	<footer class="site-footer">
+		<div class="footer-content">
+			<p>&copy 2026 Florian Brandt / Aqua Noire</p>
+			<nav class="footer-links">
+				<a href="impressum.html">Impressum</a>
+				<span class="separator">|</span>
+				<a href="datenschutz.html">Datenschutz</a>
+			</nav>
+		</div>
+	</footer>
+
+</body>
+</html>
