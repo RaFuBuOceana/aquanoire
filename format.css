@@ -1,3 +1,9 @@
+:root {
+			--cyan: #B7F2FF;
+			--cyan-glow: rgba(183,242,255,0.15);
+			--dark: #1c1c1c;
+			--card: #393939;
+		}
 * {
     margin: 0;
     padding: 0;
