@@ -1078,6 +1078,10 @@ nav img {
 	transition: color 0.3s ease;
 }
 
+.nav1-logo img {
+    mix-blend-mode: screen;
+}
+
 .nav1-logo:hover {
 	color: var(--cyan);
 }
