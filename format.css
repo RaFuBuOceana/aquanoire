@@ -1076,6 +1076,7 @@ nav img {
 	letter-spacing: 3px;
 	text-decoration: none;
 	transition: color 0.3s ease;
+	padding-left: 40px;
 }
 
 .nav1-logo img {
