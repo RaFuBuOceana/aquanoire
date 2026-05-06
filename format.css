@@ -1048,3 +1048,94 @@ nav img {
 
 			.geo-layer { padding: 14px 16px; }
 		}
+
+.nav1 {
+	width: 100%;
+	background: rgba(0,0,0,0.75);
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid rgba(183,242,255,0.1);
+	padding: 0;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+.nav1-top {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0 12px;
+	border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.nav1-logo {
+	font-family: 'Cormorant Garant', serif;
+	font-size: 1.8rem;
+	font-style: italic;
+	font-weight: 300;
+	color: #f0f0f0;
+	letter-spacing: 3px;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.nav1-logo:hover {
+	color: var(--cyan);
+}
+
+.nav1-links {
+	display: flex;
+	justify-content: center;
+	gap: 0;
+}
+
+.nav1-link {
+	padding: 12px 22px;
+	color: #888;
+	text-decoration: none;
+	font-size: 0.78rem;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.nav1-link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	right: 50%;
+	height: 1px;
+	background: var(--cyan);
+	transition: all 0.3s ease;
+}
+
+.nav1-link:hover {
+	color: #f0f0f0;
+}
+
+.nav1-link:hover::after {
+	left: 20%;
+	right: 20%;
+}
+
+.nav1-link.aktiv {
+	color: var(--cyan);
+}
+
+.nav1-link.aktiv::after {
+	left: 20%;
+	right: 20%;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+	.nav1-logo {
+		font-size: 1.4rem;
+	}
+	.nav1-link {
+		padding: 10px 12px;
+		font-size: 0.7rem;
+		letter-spacing: 1.5px;
+	}
+}
