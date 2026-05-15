@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probearbeit – Emotionen & Motivation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --paper: #f5f0e8;
+    --accent: #8b2c2c;
+    --accent2: #2c5f8b;
+    --rule: #c8bfaa;
+    --light-box: #ede8dd;
+    --margin-note: #6b5e4a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @media print {
+    body { background: white; }
+    .no-print { display: none; }
+    .page-break { page-break-before: always; }
+    section { break-inside: avoid; }
+  }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: #d9d2c5;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .document {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: 0 4px 40px rgba(0,0,0,0.25), 0 1px 8px rgba(0,0,0,0.15);
+    padding: 3rem 3.5rem 4rem;
+    position: relative;
+  }
+
+  .document::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .school-line {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--margin-note);
+    margin-bottom: 0.4rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+  }
+
+  h1 span {
+    color: var(--accent);
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--margin-note);
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1rem 1.2rem;
+    background: var(--light-box);
+    border-left: 4px solid var(--accent);
+  }
+
+  .meta-item label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--margin-note);
+    margin-bottom: 0.25rem;
+  }
+
+  .meta-item .fill-line {
+    border-bottom: 1px solid var(--rule);
+    height: 1.4rem;
+    width: 100%;
+  }
+
+  .points-total {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--margin-note);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  /* Instructions */
+  .instructions {
+    background: var(--light-box);
+    border: 1px solid var(--rule);
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .instructions strong {
+    font-weight: 600;
+  }
+
+  /* Case Study */
+  .case-study {
+    border: 2px solid var(--ink);
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    background: #fdf8f0;
+  }
+
+  .case-study::before {
+    content: 'FALLBEISPIEL';
+    position: absolute;
+    top: -0.65rem;
+    left: 1rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    padding: 0.15rem 0.6rem;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .case-study h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: var(--accent);
+  }
+
+  .case-study p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin-bottom: 0.6rem;
+  }
+
+  /* Section headings */
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: white;
+    padding: 0.1rem 0.5rem;
+  }
+
+  .section-pts {
+    margin-left: auto;
+    font-size: 0.78rem;
+    color: var(--margin-note);
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  /* Tasks */
+  .task {
+    margin-bottom: 1.6rem;
+    padding-left: 1.2rem;
+    border-left: 2px solid var(--rule);
+  }
+
+  .task-line {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    margin-bottom: 0.4rem;
+  }
+
+  .task-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+    min-width: 1.8rem;
+    flex-shrink: 0;
+  }
+
+  .task-text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .task-text .operator {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+  }
+
+  .pts-badge {
+    display: inline-block;
+    margin-left: 0.4rem;
+    font-size: 0.7rem;
+    background: var(--light-box);
+    border: 1px solid var(--rule);
+    padding: 0.05rem 0.4rem;
+    color: var(--margin-note);
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  /* Answer lines */
+  .answer-lines {
+    margin-top: 0.6rem;
+    margin-left: 1.8rem;
+  }
+
+  .answer-line {
+    border-bottom: 1px solid var(--rule);
+    height: 1.6rem;
+    margin-bottom: 0.2rem;
+    width: 100%;
+  }
+
+  /* Table tasks */
+  .fill-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    margin-top: 0.8rem;
+    margin-left: 1.8rem;
+    width: calc(100% - 1.8rem);
+  }
+
+  .fill-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.4rem 0.7rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  .fill-table td {
+    border: 1px solid var(--rule);
+    padding: 0.5rem 0.7rem;
+    vertical-align: top;
+    height: 2.2rem;
+  }
+
+  .fill-table tr:nth-child(even) td {
+    background: var(--light-box);
+  }
+
+  /* Multiple choice */
+  .mc-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.87rem;
+    margin: 0.3rem 0 0.3rem 1.8rem;
+    line-height: 1.4;
+  }
+
+  .mc-option::before {
+    content: '☐';
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    color: var(--margin-note);
+  }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px dashed var(--rule);
+    margin: 2rem 0;
+  }
+
+  /* Points box */
+  .points-box {
+    margin-top: 3rem;
+    border: 2px solid var(--ink);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .points-box .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .points-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .pt-cell {
+    border: 1px solid var(--rule);
+    padding: 0.3rem 0.5rem;
+    text-align: center;
+  }
+
+  .pt-cell .ptlabel { color: var(--margin-note); display: block; }
+  .pt-cell .ptval { font-weight: 600; }
+  .pt-cell .ptbox { border-bottom: 1px solid var(--ink); height: 1.3rem; margin-top: 0.2rem; }
+
+  /* Print button */
+  .no-print {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .print-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 0.6rem 2rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .print-btn:hover { background: var(--accent); }
+
+  .note-box {
+    background: #fdf3e0;
+    border: 1px solid #e0c882;
+    padding: 0.7rem 1rem;
+    font-size: 0.82rem;
+    margin-top: 0.6rem;
+    margin-left: 1.8rem;
+    font-style: italic;
+    color: var(--margin-note);
+    line-height: 1.5;
+  }
+
+  .section-tag-2 {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--accent2);
+    color: white;
+    padding: 0.1rem 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button class="print-btn" onclick="window.print()">🖨 Probearbeit drucken / als PDF speichern</button>
+</div>
+
+<div class="document">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="school-line">Fritz-Erler-Schule &nbsp;|&nbsp; SGGS &nbsp;|&nbsp; Fach: Pädagogik / Psychologie &nbsp;|&nbsp; Klasse: EK</div>
+    <h1>Probearbeit: <span>Emotionen & Motivation</span></h1>
+    <div class="subtitle">Themen: Komponenten von Emotionen · Emotionsregulation · Emotionale Kompetenz · Motivation & Motivationstheorien</div>
+  </div>
+
+  <div class="meta-grid">
+    <div class="meta-item">
+      <label>Name</label>
+      <div class="fill-line"></div>
+    </div>
+    <div class="meta-item">
+      <label>Datum</label>
+      <div class="fill-line"></div>
+    </div>
+    <div class="meta-item">
+      <label>Note</label>
+      <div class="fill-line"></div>
+    </div>
+  </div>
+
+  <div class="points-total">Gesamtpunkte: _____ / 60 Punkte &nbsp;|&nbsp; Bearbeitungszeit: 60 Minuten</div>
+
+  <div class="instructions">
+    <strong>Hinweise:</strong> Lesen Sie alle Aufgaben sorgfältig durch. Benutzen Sie einen Kugelschreiber oder Füller. Schreiben Sie leserlich und vollständige Sätze, sofern nicht anders angegeben. Das Fallbeispiel <em>Lena und Jonas</em> gilt für markierte Aufgaben. Hilfsmittel sind nicht erlaubt.
+  </div>
+
+  <!-- ============================
+       FALLBEISPIEL
+  ============================= -->
+  <div class="case-study">
+    <h3>„Lena und Jonas"</h3>
+
+    <p><strong>Situation 1 – Lena vor der Prüfung:</strong> Lena ist 17 Jahre alt und steht kurz vor ihrer mündlichen Abiturprüfung im Fach Deutsch. Als sie am Morgen der Prüfung aufwacht, bemerkt sie sofort, dass ihr Herz rast. Ihre Hände zittern leicht und ihr Mund ist trocken. Sie denkt: „Ich werde einen Blackout haben, das schafft sowieso niemand." Statt in die Schule zu fahren, bleibt sie zu Hause und sagt ihrer Mutter, ihr sei schlecht. Ihre beste Freundin schreibt ihr: „Du schaffst das!" – Lena liest die Nachricht, aber sie kann sich nicht beruhigen.</p>
+
+    <p><strong>Situation 2 – Jonas im Sportverein:</strong> Jonas (18) hat mit dem Gitarrespielen angefangen, weil sein Vater ihn dazu gedrängt hat – er bekommt monatlich Taschengeld, wenn er regelmäßig übt. Anfangs nervt es ihn. Nach einigen Monaten bemerkt er jedoch, dass er wirklich Spaß daran gefunden hat. Er übt jetzt auch ohne Aufforderung, stundenlang, weil ihn die Musik fasziniert. Im Sportverein hingegen lernt er gerade einen neuen Sprung, der ihm Angst macht. Sein Trainer lobt ihn nach jedem Versuch – selbst wenn er scheitert.</p>
+  </div>
+
+  <!-- ============================
+       TEIL A
+  ============================= -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Teil A</span>
+      <h2>Komponenten von Emotionen</h2>
+      <span class="section-pts">15 Punkte</span>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">A1</span>
+        <span class="task-text">
+          <span class="operator">Definieren</span> Sie den Begriff <em>Emotion</em> in eigenen Worten. <span class="pts-badge">2 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">A2</span>
+        <span class="task-text">
+          <span class="operator">Nennen und erläutern</span> Sie die fünf Komponenten von Emotionen. <span class="pts-badge">5 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">A3 ★</span>
+        <span class="task-text">
+          <span class="operator">Analysieren</span> Sie <strong>Lenas</strong> Situation mithilfe der fünf Komponenten von Emotionen. Füllen Sie dazu die Tabelle aus. <span class="pts-badge">5 Pkt.</span>
+        </span>
+      </div>
+      <table class="fill-table">
+        <thead>
+          <tr>
+            <th style="width:30%">Komponente</th>
+            <th>Wie zeigt sich das bei Lena?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Körperliche Veränderungen</td><td></td></tr>
+          <tr><td>Psychische Vorgänge</td><td></td></tr>
+          <tr><td>Aktivierung (Intensität)</td><td></td></tr>
+          <tr><td>Erleben (Qualität)</td><td></td></tr>
+          <tr><td>Beeinflussung des Verhaltens</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">A4</span>
+        <span class="task-text">
+          <span class="operator">Erklären Sie</span>, warum die Stärke eines Gefühls von der körperlichen Erregung abhängt. Nennen Sie ein eigenes Beispiel. <span class="pts-badge">3 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================
+       TEIL B
+  ============================= -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Teil B</span>
+      <h2>Emotionsregulation & Funktionen von Emotionen</h2>
+      <span class="section-pts">15 Punkte</span>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">B1</span>
+        <span class="task-text">
+          <span class="operator">Nennen</span> Sie drei Strategien zur Bewältigung von Angst und <span class="operator">erläutern</span> Sie diese jeweils kurz. <span class="pts-badge">6 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">B2 ★</span>
+        <span class="task-text">
+          <span class="operator">Wählen</span> Sie zwei Strategien aus und <span class="operator">begründen</span> Sie, warum diese für <strong>Lena</strong> besonders hilfreich wären. Gehen Sie dabei auf körperliche, psychische und Verhaltens-Merkmale ein. <span class="pts-badge">6 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">B3</span>
+        <span class="task-text">
+          <span class="operator">Ordnen</span> Sie die folgenden Situationen der passenden Funktion von Emotionen zu und <span class="operator">begründen</span> Sie kurz. <span class="pts-badge">3 Pkt.</span>
+        </span>
+      </div>
+      <div class="note-box">
+        Funktionen: Ausdrucksfunktion · Selektionsfunktion · Motivationsfunktion · Soziale Funktion · Regulationsfunktion · Wertungsfunktion
+      </div>
+      <table class="fill-table">
+        <thead>
+          <tr><th style="width:55%">Situation</th><th>Funktion + Begründung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lenas Freundin bemerkt, dass sie sie anlächelt und sich sofort besser fühlt.</td><td></td></tr>
+          <tr><td>Jonas übt Gitarre lieber als Fußball, weil ihm Musik mehr Freude bereitet.</td><td></td></tr>
+          <tr><td>Lenas Angst signalisiert ihr, dass sie sich besser vorbereiten sollte.</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================
+       TEIL C
+  ============================= -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag">Teil C</span>
+      <h2>Emotionale Kompetenz</h2>
+      <span class="section-pts">10 Punkte</span>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">C1</span>
+        <span class="task-text">
+          <span class="operator">Beschreiben</span> Sie die vier Schlüsselfertigkeiten der emotionalen Kompetenz. <span class="pts-badge">4 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">C2 ★</span>
+        <span class="task-text">
+          <span class="operator">Beurteilen</span> Sie, bei welcher Schlüsselfertigkeit <strong>Lena</strong> Schwierigkeiten hat und bei welcher <strong>Jonas</strong> besondere Stärken zeigt. <span class="operator">Begründen</span> Sie Ihre Antwort mit Belegen aus dem Fallbeispiel. <span class="pts-badge">4 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">C3</span>
+        <span class="task-text">
+          <span class="operator">Erläutern</span> Sie, warum die emotionale Entwicklung besonders in den ersten Lebensjahren bedeutsam ist. <span class="pts-badge">2 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================
+       TEIL D
+  ============================= -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag-2">Teil D</span>
+      <h2>Motivation – Grundbegriffe & Arten</h2>
+      <span class="section-pts">12 Punkte</span>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">D1</span>
+        <span class="task-text">
+          <span class="operator">Erklären</span> Sie den Unterschied zwischen einem <em>Motiv</em> und <em>Motivation</em>. Nennen Sie jeweils ein Beispiel. <span class="pts-badge">3 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">D2</span>
+        <span class="task-text">
+          <span class="operator">Beschreiben</span> Sie die drei Merkmale von Motivation (Richtung, Intensität, Ausdauer) anhand eines selbst gewählten Beispiels. <span class="pts-badge">3 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">D3 ★</span>
+        <span class="task-text">
+          <span class="operator">Analysieren</span> Sie <strong>Jonas'</strong> Situation im Hinblick auf intrinsische und extrinsische Motivation. <span class="operator">Erläutern</span> Sie, wie sich seine Motivation im Laufe der Zeit verändert hat. <span class="pts-badge">4 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">D4</span>
+        <span class="task-text">
+          <span class="operator">Entscheiden</span> Sie: Was ist der Vorteil intrinsischer gegenüber extrinsischer Motivation? <span class="pts-badge">2 Pkt.</span>
+        </span>
+      </div>
+      <div class="mc-option">Intrinsische Motivation hält länger an und führt zu mehr Zufriedenheit und besserer Leistung.</div>
+      <div class="mc-option">Extrinsische Motivation ist nachhaltiger, da äußere Anreize dauerhaft wirken.</div>
+      <div class="mc-option">Beide Motivationsformen haben die gleichen Auswirkungen auf die Leistung.</div>
+      <div class="mc-option">Intrinsische Motivation kann durch Lob vollständig ersetzt werden.</div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============================
+       TEIL E
+  ============================= -->
+  <section>
+    <div class="section-header">
+      <span class="section-tag-2">Teil E</span>
+      <h2>Selbstbestimmungstheorie & Korrumpierungseffekt</h2>
+      <span class="section-pts">8 Punkte</span>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">E1</span>
+        <span class="task-text">
+          <span class="operator">Nennen und erläutern</span> Sie die drei psychologischen Grundbedürfnisse nach Deci &amp; Ryan. <span class="pts-badge">3 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">E2 ★</span>
+        <span class="task-text">
+          <span class="operator">Ordnen</span> Sie <strong>Jonas'</strong> Gitarren-Entwicklung einer Motivationsstufe der Selbstbestimmungstheorie zu (externale Regulation → introjizierte → identifizierte → integrierte → intrinsische Regulation). <span class="operator">Begründen</span> Sie Ihre Wahl. <span class="pts-badge">3 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-line">
+        <span class="task-num">E3 ★</span>
+        <span class="task-text">
+          <span class="operator">Erörtern</span> Sie, ob das Lob des Trainers von Jonas' Sprungtraining zu einem <em>Korrumpierungseffekt</em> führen könnte. Beziehen Sie die Bedingungen aus der Forschung ein. <span class="pts-badge">2 Pkt.</span>
+        </span>
+      </div>
+      <div class="answer-lines">
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Points overview -->
+  <div class="points-box">
+    <div class="label">Punkteübersicht</div>
+    <div class="points-grid">
+      <div class="pt-cell"><span class="ptlabel">Teil A</span><span class="ptval">/ 15</span><div class="ptbox"></div></div>
+      <div class="pt-cell"><span class="ptlabel">Teil B</span><span class="ptval">/ 15</span><div class="ptbox"></div></div>
+      <div class="pt-cell"><span class="ptlabel">Teil C</span><span class="ptval">/ 10</span><div class="ptbox"></div></div>
+      <div class="pt-cell"><span class="ptlabel">Teil D</span><span class="ptval">/ 12</span><div class="ptbox"></div></div>
+      <div class="pt-cell"><span class="ptlabel">Teil E</span><span class="ptval">/ 8</span><div class="ptbox"></div></div>
+      <div class="pt-cell" style="background:var(--light-box)"><span class="ptlabel">Gesamt</span><span class="ptval">/ 60</span><div class="ptbox"></div></div>
+    </div>
+  </div>
+
+</div><!-- /document -->
+
+</body>
+</html>
